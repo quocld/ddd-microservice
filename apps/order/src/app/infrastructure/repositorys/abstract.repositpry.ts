@@ -7,7 +7,7 @@ import {
   SaveOptions,
   Connection,
 } from 'mongoose';
-import { AbstractDocument } from '../models/abstract.schemas';
+import { AbstractDocument } from './abstract.schemas';
 
 export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   protected abstract readonly logger: Logger;
