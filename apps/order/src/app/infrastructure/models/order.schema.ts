@@ -12,10 +12,10 @@ export class Order extends AbstractDocument {
   quantity: number;
 
   @Prop({ type: Date, default: now })
-  createdAt: Date;
+  createdAt?: Date;
 
   @Prop({ type: Date, default: now })
-  updatedAt: Date;
+  updatedAt?: Date;
 }
 
 export const OrderSchema = SchemaFactory.createForClass(Order);
