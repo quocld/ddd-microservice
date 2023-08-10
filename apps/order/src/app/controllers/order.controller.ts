@@ -1,17 +1,27 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { OrderService } from '../domain/services/order.service';
 
-@Controller()
+@Controller('orders')
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
-  @Get()
+  @Get('random-create')
   hello() {
     return this.orderService.createNewOrder();
   }
 
-  @Get('/orders')
+  @Get('')
   getOrders() {
-    return 'Orders heare:/....';
+    return this.orderService.findAll();
+  }
+
+  @Post(':quantity')
+  create(@Param('quantity') quantity: number) {
+    return this.orderService.create(quantity);
+  }
+
+  @Patch(':id')
+  delete(@Param('id') id: string){
+    return this.orderService.delete(id);
   }
 }
