@@ -3,6 +3,6 @@ import { BffModule } from './bff.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(BffModule);
-  await app.listen(3000);
+  await app.listen(8888);
 }
 bootstrap();

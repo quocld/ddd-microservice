@@ -2,13 +2,13 @@ services:
   order:
     build:
       context: .
-      dockerfile: ../order/Dockerfile
+      dockerfile: ./apps/order/Dockerfile
       target: development
     command: npm run start:dev order
     env_file:
-      - ../order/.env
+      - ./apps/order/.env
     depends_on:
-      - dev-db
+      - mongodb-primary
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
@@ -17,11 +17,11 @@ services:
   bff:
     build:
       context: .
-      dockerfile: ../bff/Dockerfile
+      dockerfile: ./apps/bff/Dockerfile
       target: development
     command: npm run start:dev bff
     env_file:
-      - ../bff/.env
+      - ./apps/bff/.env
     depends_on:
       - order
     volumes:
@@ -37,8 +37,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123
       POSTGRES_DB: nest
-    networks:
-      - web-enterprise-final    
+      
 
  
   
