@@ -9,8 +9,8 @@ export class Order {
     @IsNotEmpty()
     quantity: number;
 
-    createdAt: Date;
+    createdAt?: Date;
 
-    updatedAt: Date;
+    updatedAt?: Date;
   }
   
