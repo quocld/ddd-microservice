@@ -8,7 +8,7 @@ services:
     env_file:
       - ./apps/order/.env
     depends_on:
-      - mongodb-primary
+      - dev-db
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
@@ -37,8 +37,11 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123
       POSTGRES_DB: nest
-      
-
+    networks:
+      - api-order    
+networks:
+  api-order:
+    driver: bridge
  
   
 
