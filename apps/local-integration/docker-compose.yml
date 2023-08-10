@@ -1,0 +1,45 @@
+services:
+  order:
+    build:
+      context: .
+      dockerfile: ./apps/order/Dockerfile
+      target: development
+    command: npm run start:dev order
+    env_file:
+      - ./apps/order/.env
+    depends_on:
+      - mongodb-primary
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '3005:3005'
+  bff:
+    build:
+      context: .
+      dockerfile: ./apps/bff/Dockerfile
+      target: development
+    command: npm run start:dev bff
+    env_file:
+      - ./apps/bff/.env
+    depends_on:
+      - order
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '8888:8888'
+  dev-db:
+    image: postgres:13
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - web-enterprise-final    
+
+ 
+  
+
