@@ -8,12 +8,14 @@ services:
     env_file:
       - ./apps/order/.env
     depends_on:
-      - dev-db
+      - mongodb-primary
+      - mongodb-secondary
+      - mongodb-arbiter
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - '3005:3005'
+      - '4001:4001'
   bff:
     build:
       context: .
