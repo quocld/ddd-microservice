@@ -54,7 +54,7 @@ describe('OrderService', () => {
     it('should call orderRepository.find and return a list of orders', async () => {
       const result = await orderService.findAll();
       expect(result).toEqual([orderStub()]);
-      expect(orderRepository.find).toHaveBeenCalledWith({});
+      expect(orderRepository.find).toHaveBeenCalledWith({isDeleted: false});
     });
   });
 
