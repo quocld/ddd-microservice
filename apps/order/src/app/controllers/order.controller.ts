@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { OrderService } from '../domain/services/order.service';
 
 @Controller('orders')
@@ -20,7 +20,7 @@ export class OrderController {
     return this.orderService.create(quantity);
   }
 
-  @Patch(':id')
+  @Delete(':id')
   delete(@Param('id') id: string){
     return this.orderService.delete(id);
   }

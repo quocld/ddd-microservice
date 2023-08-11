@@ -7,7 +7,7 @@ import { HttpClientService } from './http-client.service';
   imports: [
     HttpModule.register({
       timeout: 180000,
-      proxy: undefined,
+      proxy: false,
     }),
   ],
   providers: [HttpClientService],

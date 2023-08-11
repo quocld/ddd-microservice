@@ -19,7 +19,7 @@ export class OrderControllerController {
     const headerRequest = {}
     headerRequest["x-requestid"] = rid;
     const axiosConfig = { headers: headerRequest };
-    return this.httpServiceClient.get$({}, 'http://localhost:4001/orders',axiosConfig).pipe(
+    return this.httpServiceClient.get$(reqParams, 'http://localhost:4001/orders',axiosConfig).pipe(
       map((apiRes) => apiRes),
       catchError((e: Error) => {
         throw new HttpException(e, HttpStatus.INTERNAL_SERVER_ERROR);
