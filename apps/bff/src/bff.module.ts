@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import { RestControllerModule } from './controllers/rest.controller.module';
 
 @Module({
-  imports: [],
+  imports: [RestControllerModule],
   controllers: [],
   providers: [],
 })

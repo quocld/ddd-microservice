@@ -14,7 +14,7 @@ export class OrderService {
   }
 
   async findAll() {
-    return await this.orderRepository.find({});
+    return await this.orderRepository.find({isDeleted: false});
   }
 
   async create(quantity: number) {
