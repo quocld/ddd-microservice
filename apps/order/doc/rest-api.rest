@@ -5,9 +5,9 @@ GET http://localhost:4001/orders
 GET http://localhost:4001/orders/random-create
 ###
 
-POST http://localhost:4001/orders/5
+POST http://localhost:4001/orders/6
 Accept: application/json
 ###
 
-PATCH  http://localhost:4001/orders/64d49619a0b2f0c44d58bab5
+DELETE  http://localhost:4001/orders/64d9e99cb168813f9736f3ae
 
