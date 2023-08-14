@@ -15,8 +15,12 @@ export class OrderService {
   )
   createNewRandomOrder() {
     return this.orderRepository.create(
-      new OrderModel({ quantity: Math.random() }),
+      new OrderModel({ quantity: this.getRandomInt(100) }),
     );
+  }
+
+  private getRandomInt(max) {
+    return Math.floor(Math.random() * max);
   }
 
   @InjectionHTTPExceptions(
