@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { OrderController } from './order.controller';
-import { OrderService } from '../domain/services/order.service';
 import { Order } from '../infrastructure/models/order.schema';
 import { Types } from 'mongoose';
+import { OrderService } from '../domain/services/order/order.service';
 
 export const orderStub = (): Order => {
   return {
@@ -51,7 +51,7 @@ describe('OrderController', () => {
     });
 
     test('then it should call orderService', () => {
-      expect(orderService.createNewOrder).toBeCalled();
+      expect(orderService.createNewRandomOrder).toBeCalled();
     });
 
     test('then is should return a order', () => {

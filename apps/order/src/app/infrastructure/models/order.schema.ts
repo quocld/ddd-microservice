@@ -11,6 +11,9 @@ export class Order extends AbstractDocument {
   @Prop({ type: Number, default: 1 })
   quantity: number;
 
+  @Prop({ type: Boolean, default: false })
+  paid: boolean;
+
   @Prop({ type: Date, default: now })
   createdAt?: Date;
 

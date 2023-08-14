@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { OrderController } from '../../../controllers/order.controller';
 import { Order, OrderSchema } from '../../models/order.schema';
-import { OrderService } from '../../../domain/services/order.service';
 import { OrdersRepository } from '../../repositorys/order-repository/orders.repository';
+import { OrderService } from '../../../domain/services/order/order.service';
 
 @Module({
   imports: [

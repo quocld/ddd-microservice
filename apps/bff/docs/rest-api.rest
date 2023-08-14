@@ -1,5 +1,5 @@
 
-GET http://localhost:4001/orders
+GET http://localhost:8888/order-kafka/billing
 ###
 
 GET http://localhost:8888/order/all

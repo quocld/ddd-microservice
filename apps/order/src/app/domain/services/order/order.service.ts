@@ -9,30 +9,57 @@ import { OrdersRepository } from '../../../infrastructure/repositorys/order-repo
 export class OrderService {
   constructor(private readonly orderRepository: OrdersRepository) {}
 
-  @InjectionHTTPExceptions(orderError.INTERNAL_SERVER_ERROR,HttpStatus.INTERNAL_SERVER_ERROR)
+  @InjectionHTTPExceptions(
+    orderError.INTERNAL_SERVER_ERROR,
+    HttpStatus.INTERNAL_SERVER_ERROR,
+  )
   createNewRandomOrder() {
     return this.orderRepository.create(
       new OrderModel({ quantity: Math.random() }),
     );
   }
 
-  @InjectionHTTPExceptions(orderError.INTERNAL_SERVER_ERROR,HttpStatus.INTERNAL_SERVER_ERROR)
+  @InjectionHTTPExceptions(
+    orderError.INTERNAL_SERVER_ERROR,
+    HttpStatus.INTERNAL_SERVER_ERROR,
+  )
   async findAll() {
-    return await this.orderRepository.find({isDeleted: false});
+    return await this.orderRepository.find({ isDeleted: false });
   }
 
-  @InjectionHTTPExceptions(orderError.INTERNAL_SERVER_ERROR,HttpStatus.INTERNAL_SERVER_ERROR)
+  @InjectionHTTPExceptions(
+    orderError.INTERNAL_SERVER_ERROR,
+    HttpStatus.INTERNAL_SERVER_ERROR,
+  )
   async create(quantity: number) {
     return await this.orderRepository.create(
       new OrderModel({ quantity: quantity }),
     );
   }
 
-  @InjectionHTTPExceptions(orderError.INTERNAL_SERVER_ERROR,HttpStatus.INTERNAL_SERVER_ERROR)
+  @InjectionHTTPExceptions(
+    orderError.INTERNAL_SERVER_ERROR,
+    HttpStatus.INTERNAL_SERVER_ERROR,
+  )
   async delete(id: string) {
     return await this.orderRepository.findOneAndUpdate(
       { _id: new Types.ObjectId(id) },
       { isDeleted: true },
     );
+  }
+
+  @InjectionHTTPExceptions(
+    orderError.INTERNAL_SERVER_ERROR,
+    HttpStatus.INTERNAL_SERVER_ERROR,
+  )
+  async pay(id: string) {
+    const orderPaid = await this.orderRepository.findOneAndUpdate(
+      { _id: new Types.ObjectId(id) },
+      { paid: true },
+    );
+
+    console.log('paid' + orderPaid);
+
+    return orderPaid;
   }
 }
