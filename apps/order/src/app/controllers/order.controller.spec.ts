@@ -9,6 +9,7 @@ export const orderStub = (): Order => {
     _id: new Types.ObjectId('64d49619a0b2f0c44d58bab5'),
     isDeleted: true,
     quantity: 2,
+    paid: false,
     createdAt: new Date('2023-08-10T09:13:45.775Z'),
     updatedAt: new Date('2023-08-10T09:13:45.775Z'),
   };
@@ -25,7 +26,7 @@ describe('OrderController', () => {
         {
           provide: OrderService,
           useValue: {
-            createNewOrder: jest.fn().mockReturnValue(orderStub()),
+            createNewRandomOrder: jest.fn().mockReturnValue(orderStub()),
             findAll: jest.fn().mockReturnValue([orderStub()]),
             create: jest.fn().mockReturnValue(orderStub()),
             delete: jest.fn().mockReturnValue(orderStub()),

@@ -12,7 +12,7 @@ export class Order extends AbstractDocument {
   quantity: number;
 
   @Prop({ type: Boolean, default: false })
-  paid: boolean;
+  paid?: boolean;
 
   @Prop({ type: Date, default: now })
   createdAt?: Date;
