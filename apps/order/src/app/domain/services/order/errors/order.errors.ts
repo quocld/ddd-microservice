@@ -1,0 +1,3 @@
+export const orderError={
+    INTERNAL_SERVER_ERROR:"INTERNAL_SERVER_ERROR"
+}

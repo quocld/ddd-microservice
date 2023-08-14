@@ -1,5 +1,5 @@
 import { Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
-import { OrderService } from '../domain/services/order.service';
+import { OrderService } from '../domain/services/order/order.service';
 
 @Controller('orders')
 export class OrderController {
@@ -7,7 +7,7 @@ export class OrderController {
 
   @Get('random-create')
   random() {
-    return this.orderService.createNewOrder();
+    return this.orderService.createNewRandomOrder();
   }
 
   @Get('')

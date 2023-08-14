@@ -15,5 +15,5 @@ POST http://localhost:4001/orders/5
 Accept: application/json
 ###
 
-PATCH  http://localhost:4001/orders/64d49619a0b2f0c44d58bab5
+DELETE  http://localhost:4001/orders/64d5ff31f81a753124112317
 

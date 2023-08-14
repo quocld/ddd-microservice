@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { OrderService } from './order.service';
-import { OrdersRepository } from '../../infrastructure/repositorys/order-repository/orders.repository';
+import { OrdersRepository } from '../../../infrastructure/repositorys/order-repository/orders.repository';
 
 import { Types } from 'mongoose';
-import { Order } from '../../infrastructure/models/order.schema';
+import { Order } from '../../../infrastructure/models/order.schema';
 
 export const orderStub = (): Order => {
   return {
@@ -44,7 +44,7 @@ describe('OrderService', () => {
 
   describe('createNewOrder', () => {
     it('should call orderRepository.create and return a new order', async () => {
-      const result = await orderService.createNewOrder();
+      const result = await orderService.createNewRandomOrder();
       expect(result).toEqual(orderStub());
       expect(orderRepository.create).toHaveBeenCalled();
     });

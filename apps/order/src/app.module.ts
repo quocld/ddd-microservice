@@ -1,7 +1,5 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from './app/infrastructure/database/database.module';
-import { MongooseModule } from '@nestjs/mongoose';
-import { Order, OrderSchema } from './app/infrastructure/models/order.schema';
 import { ConfigModule } from '@nestjs/config';
 import { OrderModule } from './app/infrastructure/modules/order/order.module';
 import * as Joi from 'joi';
